@@ -12,6 +12,7 @@ from .components import *
 @dataclass
 class RespResmTmn(CombinedSystem):
     g: float
+    kp: float
     
     def __init__(self,
                  *,
@@ -21,9 +22,11 @@ class RespResmTmn(CombinedSystem):
                  N_tmn: int,
                  Ec: float,
                  omega_qub: float,
-                 g: float
+                 g: float,
+                 kp: float
                 ):
         self.g = g
+        self.kp = kp
         
         Subsystems = namedtuple('Subsystems', ['res_p', 'res_m', 'tmn'])
         
@@ -50,6 +53,15 @@ class RespResmTmn(CombinedSystem):
     
     def Hamiltonian(self):
         return self.H_nointeract() + self.V_interact()
+    
+    
+    def relax_ops(self):
+        N_p, N_m, N_tmn = self.Ns
+        a_p = dq.tensor(dq.destroy(N_p), dq.eye(N_m))
+        a_m = dq.tensor(dq.eye(N_p), dq.destroy(N_m))
+        rop = dq.tensor(a_p - a_m, dq.eye(N_tmn))
+        c_relax = jnp.sqrt(self.kp / 2) * rop
+        return [c_relax]
         
     
     
@@ -68,6 +80,7 @@ class RespResmTmnDrivenRF(RespResmTmn):
                  Ec: float,
                  omega_qub: float,
                  g: float,
+                 kp: float,
                  omega_drive: float,
                  fdrive_tmn: Callable,
                  fdrive_res: Callable
@@ -84,7 +97,8 @@ class RespResmTmnDrivenRF(RespResmTmn):
             N_tmn=N_tmn,
             Ec=Ec,
             omega_qub=omega_qub,
-            g=g
+            g=g,
+            kp=kp
         )    
         
         
