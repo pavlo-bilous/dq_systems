@@ -1,4 +1,3 @@
-import jax.numpy as jnp
 import dynamiqs as dq
 
 from .abc import *

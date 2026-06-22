@@ -4,7 +4,7 @@ from collections.abc import Sequence
 import dynamiqs as dq
 
 from .qsystem_abc import *
-from .simple_system import *
+from .simple_system_abc import *
 
 
 @dataclass

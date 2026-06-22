@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import dynamiqs as dq
 
-from .simple_system import *
+from .simple_system_abc import *
 
 
 @dataclass(kw_only=True)

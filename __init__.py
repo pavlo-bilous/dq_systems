@@ -1,4 +1,5 @@
 from .setup import *
 
-from .general import *
-from .circuit_qed import *
+from .fundamental import *
+from .transmon import *
+from .resp_resm_tmn import *
