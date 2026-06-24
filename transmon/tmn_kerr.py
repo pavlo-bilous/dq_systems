@@ -6,19 +6,32 @@ from ..fundamental import *
 
 class TransmonKerr(TransmonABC):
     
+    
+    @staticmethod
+    def eval_Ej(Ec, omega_qub):
+        return (omega_qub + Ec)**2 / (8 * Ec)
+        
+      
+    @staticmethod
+    def eval_omega_qub(Ec, Ej):
+        return jnp.sqrt(8 * Ec * Ej) - Ec
+    
+    
     def __init__(self, *,
                  N: int,
                  Ec: float,
-                 omega_qub: float,
-                 omega_rwa: float = 0.0):
+                 omega_qub: float | Callable):
         
         self.linear_part = ResonatorMode(
             N=N,
-            omega=omega_qub,
-            omega_rwa=omega_rwa
+            omega=omega_qub
         )
         
-        Ej = (omega_qub + Ec)**2 / (8 * Ec)
+        if isinstance(omega_qub, Callable):
+            Ej = lambda t: eval_Ej(Ec, omega_qub(t))
+        else:
+            Ej = TransmonKerr.eval_Ej(Ec, omega_qub)
+        
         super().__init__(N, Ec, Ej)
     
     

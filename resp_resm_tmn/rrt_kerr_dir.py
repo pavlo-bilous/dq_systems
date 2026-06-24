@@ -4,30 +4,29 @@ import jax.numpy as jnp
 import dynamiqs as dq
 
 from .rrt_kerr_abc import *
+from ..fundamental import *
 
 
 @dataclass
 class RespResmTmnKerrDirect(RespResmTmnKerrABC):
     kp_filter: float
-    g: float
+    g: float | Callable
     
     def __init__(self, *,
                  N_res: int,
-                 omega_res: float,
+                 omega_res: float | Callable,
                  J: float,
                  kp_filter: float,
                  N_tmn: int,
                  Ec: float,
-                 omega_qub: float,
-                 g: float,
-                 omega_rwa: float = 0.0
+                 omega_qub: float | Callable,
+                 g: float | Callable
                 ):
         self.kp_filter = kp_filter
-        self.g = g
+        self.g = Param(g)
         
         super().__init__(N_res, omega_res, J,
-                 N_tmn, Ec, omega_qub,
-                 omega_rwa
+                 N_tmn, Ec, omega_qub
         )
         
         
@@ -35,7 +34,7 @@ class RespResmTmnKerrDirect(RespResmTmnKerrABC):
         N_p, N_m, N_tmn = self.Ns
         vr = dq.tensor(dq.create(N_p), dq.eye(N_m))
         vr += dq.tensor(dq.eye(N_p), dq.create(N_m))
-        V = self.g / jnp.sqrt(2) * dq.tensor(vr, dq.destroy(N_tmn))
+        V = self.g * (dq.tensor(vr, dq.destroy(N_tmn)) / jnp.sqrt(2))
         return V + V.dag()
     
     
