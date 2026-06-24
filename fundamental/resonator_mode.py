@@ -3,13 +3,16 @@ from dataclasses import dataclass
 import dynamiqs as dq
 
 from .simple_system_abc import *
+from .param_class import *
 
 
 @dataclass(kw_only=True)
 class ResonatorMode(SimpleSystemABC):
-    omega: float
-    omega_rwa: float = 0.0
+    omega: Param
+    omega_rwa: Param = Param(0.0)
     
     
     def Hamiltonian(self):
-        return (self.omega - self.omega_rwa) * dq.number(self.N)
+        H = self.omega * dq.number(self.N)
+        H_rwa = self.omega_rwa * dq.number(self.N)
+        return H - H_rwa
