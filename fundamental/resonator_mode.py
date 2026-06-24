@@ -8,9 +8,14 @@ from .param_class import *
 
 @dataclass(kw_only=True)
 class ResonatorMode(SimpleSystemABC):
-    omega: Param
-    omega_rwa: Param = Param(0.0)
+    omega: float | Callable
+    omega_rwa: float | Callable
     
+    
+    def __post_init__(self):
+        self.omega = Param(self.omega)
+        self.omega_rwa = Param(self.omega_rwa)
+        
     
     def Hamiltonian(self):
         H = self.omega * dq.number(self.N)
