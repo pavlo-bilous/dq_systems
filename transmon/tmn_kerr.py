@@ -1,10 +1,10 @@
 import dynamiqs as dq
 
-from .abc import *
+from .tmn_abc import *
 from ..fundamental import *
     
 
-class TransmonKerr(Transmon):
+class TransmonKerr(TransmonABC):
     
     def __init__(self, *,
                  N: int,

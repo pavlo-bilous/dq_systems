@@ -3,11 +3,11 @@ from dataclasses import dataclass
 import jax.numpy as jnp
 import dynamiqs as dq
 
-from .kerr_abc import *
+from .rrt_kerr_abc import *
 
 
 @dataclass
-class RespResmTmnKerrDirect(RespResmTmnKerr):
+class RespResmTmnKerrDirect(RespResmTmnKerrABC):
     kp_filter: float
     g: float
     

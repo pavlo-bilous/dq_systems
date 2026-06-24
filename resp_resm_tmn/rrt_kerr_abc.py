@@ -1,8 +1,8 @@
-from .abc import *
+from .rrt_abc import *
 from ..transmon import *
 
 
-class RespResmTmnKerr(RespResmTmn):
+class RespResmTmnKerrABC(RespResmTmnABC):
     
     def __init__(self,
                  N_res: int,

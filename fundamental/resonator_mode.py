@@ -6,7 +6,7 @@ from .simple_system_abc import *
 
 
 @dataclass(kw_only=True)
-class ResonatorMode(SimpleSystem):
+class ResonatorMode(SimpleSystemABC):
     omega: float
     omega_rwa: float = 0.0
     

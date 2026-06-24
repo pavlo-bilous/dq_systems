@@ -5,7 +5,7 @@ import jax.numpy as jnp
 import dynamiqs as dq
 
 
-class QSystem(ABC):
+class QSystemABC(ABC):
         
     @abstractmethod
     def Hamiltonian(self):

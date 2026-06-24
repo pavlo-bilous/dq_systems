@@ -1,2 +1,2 @@
-from .abc import Transmon
-from .kerr import TransmonKerr
+from .tmn_abc import TransmonABC
+from .tmn_kerr import TransmonKerr

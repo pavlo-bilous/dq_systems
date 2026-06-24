@@ -5,14 +5,14 @@ from ..fundamental import *
 from ..transmon import *
 
 
-class RespResmTmn(CombinedSystem):
+class RespResmTmnABC(CombinedSystem):
     
     def __init__(self,
                  N_res: int,
                  omega_res: float,
                  omega_res_rwa: float,
                  J: float,
-                 tmn: Transmon
+                 tmn: TransmonABC
                 ):
         
         Subsystems = namedtuple('Subsystems', ['res_p', 'res_m', 'tmn'])
@@ -23,10 +23,6 @@ class RespResmTmn(CombinedSystem):
             tmn=tmn
         )
         super().__init__(subsystems)
-        
-    
-    def V_drive(self):
-        return 0.0
     
 
     @abstractmethod
@@ -40,9 +36,4 @@ class RespResmTmn(CombinedSystem):
     
 
     def Hamiltonian(self):
-        H = (
-            super().Hamiltonian() +
-            self.V_interact() +
-            self.V_drive()
-        )
-        return H
+        return super().Hamiltonian() + self.V_interact()

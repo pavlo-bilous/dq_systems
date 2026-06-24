@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import jax.numpy as jnp
 import dynamiqs as dq
 
-from .kerr_direct import *
+from .rrt_kerr_dir import *
 
 
 @dataclass
@@ -61,3 +61,7 @@ class RespResmTmnKerrDirectDriven(RespResmTmnKerrDirect):
         )
         
         return Vd_pm + Vd_tmn
+    
+    
+    def Hamiltonian(self):
+        return super().Hamiltonian() + self.V_drive()

@@ -4,5 +4,5 @@ from .qsystem_abc import *
 
 
 @dataclass
-class SimpleSystem(QSystem):
+class SimpleSystemABC(QSystemABC):
     N: int

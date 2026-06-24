@@ -4,6 +4,6 @@ from ..fundamental import *
 
 
 @dataclass
-class Transmon(SimpleSystem):
+class TransmonABC(SimpleSystemABC):
     Ec: float
     Ej: float

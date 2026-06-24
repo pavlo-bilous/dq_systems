@@ -8,8 +8,8 @@ from .simple_system_abc import *
 
 
 @dataclass
-class CombinedSystem(QSystem):
-    subsystems: Sequence[SimpleSystem]
+class CombinedSystem(QSystemABC):
+    subsystems: Sequence[SimpleSystemABC]
     
     
     @property
