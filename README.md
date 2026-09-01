@@ -9,6 +9,18 @@ its own parameters into a `dynamiqs` Hamiltonian.
 
 ## Architecture
 
+![dq_systems class hierarchy](docs/class_hierarchy_dark.svg#gh-dark-mode-only)
+![dq_systems class hierarchy](docs/class_hierarchy_light.svg#gh-light-mode-only)
+
+Solid grey lines with a hollow arrowhead are inheritance (*is-a*); dashed
+copper lines with a diamond are composition (*has-a*) -- a field that holds
+an instance of the pointed-to class. A dashed, accent-colored card border
+marks an abstract class that Python refuses to instantiate directly until
+every `@abstractmethod` is filled in. The copper dot marks the four classes
+that actually declare a `Param` "port" (see below).
+
+Equivalent as plain text:
+
 ```
 QSystemABC (abstract: .Hamiltonian())
 ├── SimpleSystemABC        -- one "atomic" mode, Hilbert dim N
