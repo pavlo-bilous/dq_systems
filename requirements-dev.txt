@@ -1,0 +1,6 @@
+# Dependencies to develop/test dq_systems. Not a formal package manifest
+# (there isn't one yet, see README.md) -- just what's needed to import the
+# package and run the test suite.
+jax>=0.4.38
+dynamiqs>=0.3.4
+pytest>=9.1
