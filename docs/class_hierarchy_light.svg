@@ -1,148 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 1060" width="1020" height="1060" role="img" aria-label="Class hierarchy of dq_systems: QSystemABC branches into SimpleSystemABC (ResonatorMode, TransmonABC, TransmonKerr) and CombinedSystem (the RespResmTmn chain ending in RespResmTmnKerrDirectDriven), with composition links from CombinedSystem to SimpleSystemABC and from RespResmTmnABC to TransmonABC.">
-        <defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1302" height="1925" viewBox="-6 0 1302 1925" role="img" aria-label="Class hierarchy of dq_systems. Top: the general framework - QSystemABC branches into SimpleSystemABC (ResonatorMode, TransmonABC, TransmonKerr) and CombinedSystem. Bottom, in its own separated zone: the concrete resp_resm_tmn circuit chain from RespResmTmnABC to RespResmTmnKerrDirectDriven, which inherits from CombinedSystem and composes a TransmonABC, both up in the framework zone.">
+<defs>
   <style>
-    .card-name { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-weight: 700; font-size: 14px; fill: #16202B; }
-    .card-remark { font-family: ui-sans-serif, system-ui, Arial, sans-serif; font-size: 12.5px; fill: #4E5D6A; }
-    .card-badge-text { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 9.5px; font-weight: 600; letter-spacing: 0.06em; }
-    .port-label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11px; fill: #A8641F; }
-    .arc-label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11px; font-weight: 600; fill: #A8641F; }
+    .card-name { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-weight: 700; fill: #16202B; }
+    .card-formula { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 15.5px; fill: #4E5D6A; }
+    .card-remark { font-family: ui-sans-serif, system-ui, Arial, sans-serif; font-size: 15.5px; fill: #4E5D6A; }
+    .card-badge-text { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; }
+    .port-label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13.5px; fill: #A8641F; }
+    .arc-label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13.5px; font-weight: 600; fill: #A8641F; }
+    .zone-label { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; fill: #A8641F; }
+    .zone-sub { font-family: ui-sans-serif, system-ui, Arial, sans-serif; font-size: 13.5px; fill: #4E5D6A; }
   </style>
-          <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="1" fill="#4E5D6A" opacity="0.22" />
-          </pattern>
-          <marker id="tri" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="11" markerHeight="11" orient="auto">
-            <path d="M1,1 L11,6 L1,11 Z" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.3" stroke-linejoin="round" />
-          </marker>
-        </defs>
 
-        <rect x="0" y="0" width="1020" height="1060" fill="#F3F5F7" />
-        <rect x="0" y="0" width="1020" height="1060" fill="url(#grid)" />
+  <style>
+    .card-name { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 700; fill: #16202B; }
+    .card-formula { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 15.5px; fill: #4E5D6A; }
+    .card-remark { font-family: "IBM Plex Sans", ui-sans-serif, sans-serif; font-size: 15.5px; fill: #4E5D6A; }
+    .card-badge-text { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; }
+    .port-label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13.5px; fill: #A8641F; }
+    .arc-label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13.5px; font-weight: 600; fill: #A8641F; }
+    .zone-label { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; fill: #A8641F; }
+    .zone-sub { font-family: "IBM Plex Sans", ui-sans-serif, sans-serif; font-size: 13.5px; fill: #4E5D6A; }
+  </style>
+  <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="#4E5D6A" opacity="0.22" />
+  </pattern>
+  <marker id="tri" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+    <path d="M1,1 L11,6 L1,11 Z" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" stroke-linejoin="round" />
+  </marker>
 
-        <!-- ===== composition edges (drawn under everything) ===== -->
-        <g fill="none" stroke="#A8641F" stroke-width="1.6" stroke-dasharray="1,5" stroke-linecap="round">
-          <path d="M 780,276 C 680,300 500,300 400,276" />
-          <path d="M 780,446 C 700,505 600,505 560,456" />
-        </g>
-        <!-- diamonds at the "owner" end -->
-        <rect x="774" y="270" width="12" height="12" fill="#A8641F" transform="rotate(45 780 276)" />
-        <rect x="774" y="440" width="12" height="12" fill="#A8641F" transform="rotate(45 780 446)" />
-        <!-- arc labels, haloed for legibility over the grid -->
-        <text class="arc-label" x="590" y="290" text-anchor="middle" stroke="#FFFFFF" stroke-width="4" paint-order="stroke" transform="translate(0,-3)">subsystems: 0..*</text>
-        <text class="arc-label" x="655" y="497" text-anchor="middle" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">tmn</text>
-
-        <!-- ===== inheritance edges ===== -->
-        <g fill="none" stroke="#4E5D6A" stroke-width="1.6">
-          <path d="M 330,184 L 590,116" marker-end="url(#tri)" />
-          <path d="M 850,184 L 590,116" marker-end="url(#tri)" />
-          <path d="M 170,344 L 330,276" marker-end="url(#tri)" />
-          <path d="M 490,344 L 330,276" marker-end="url(#tri)" />
-          <path d="M 490,524 L 490,456" marker-end="url(#tri)" />
-          <path d="M 850,354 L 850,276" marker-end="url(#tri)" />
-          <path d="M 850,534 L 850,446" marker-end="url(#tri)" />
-          <path d="M 850,704 L 850,626" marker-end="url(#tri)" />
-          <path d="M 850,883 L 850,816" marker-end="url(#tri)" />
-        </g>
-
-        <!-- ===== node: QSystemABC (root) ===== -->
-        <g transform="translate(590,70)">
-          <rect x="-142" y="-46" width="284" height="92" rx="3" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.6" stroke-dasharray="6,4" />
-          <rect x="80" y="-40" width="46" height="16" rx="2" fill="none" stroke="#0E7DA6" stroke-width="1" />
-          <text class="card-badge-text" x="103" y="-28" text-anchor="middle" fill="#0E7DA6">ABC</text>
-          <text class="card-name" x="-124" y="-18">QSystemABC</text>
-          <text class="card-remark" x="-124" y="4">the contract:</text>
-          <text class="card-remark" x="-124" y="22">must provide .Hamiltonian()</text>
-        </g>
-
-        <!-- ===== node: SimpleSystemABC ===== -->
-        <g transform="translate(330,230)">
-          <rect x="-142" y="-46" width="284" height="92" rx="3" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.6" stroke-dasharray="6,4" />
-          <rect x="80" y="-40" width="46" height="16" rx="2" fill="none" stroke="#0E7DA6" stroke-width="1" />
-          <text class="card-badge-text" x="103" y="-28" text-anchor="middle" fill="#0E7DA6">ABC</text>
-          <text class="card-name" x="-124" y="-18">SimpleSystemABC</text>
-          <text class="card-remark" x="-124" y="4">one mode, dim N —</text>
-          <text class="card-remark" x="-124" y="22">the composable unit</text>
-        </g>
-
-        <!-- ===== node: CombinedSystem ===== -->
-        <g transform="translate(850,230)">
-          <rect x="-142" y="-46" width="284" height="92" rx="3" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" />
-          <text class="card-name" x="-124" y="-18">CombinedSystem</text>
-          <text class="card-remark" x="-124" y="4">⊗-composes several</text>
-          <text class="card-remark" x="-124" y="22">subsystems into one space</text>
-        </g>
-
-        <!-- ===== node: ResonatorMode ===== -->
-        <g transform="translate(170,400)">
-          <rect x="-142" y="-56" width="284" height="112" rx="3" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" />
-          <text class="card-name" x="-124" y="-28">ResonatorMode</text>
-          <text class="card-remark" x="-124" y="-6">H = ω · n&#770;</text>
-          <text class="card-remark" x="-124" y="12">a single harmonic mode</text>
-          <circle cx="-118" cy="34" r="3.5" fill="#A8641F" />
-          <text class="port-label" x="-106" y="38">port  ω</text>
-        </g>
-
-        <!-- ===== node: TransmonABC ===== -->
-        <g transform="translate(490,400)">
-          <rect x="-142" y="-56" width="284" height="112" rx="3" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.6" stroke-dasharray="6,4" />
-          <rect x="80" y="-50" width="46" height="16" rx="2" fill="none" stroke="#0E7DA6" stroke-width="1" />
-          <text class="card-badge-text" x="103" y="-38" text-anchor="middle" fill="#0E7DA6">ABC</text>
-          <text class="card-name" x="-124" y="-28">TransmonABC</text>
-          <text class="card-remark" x="-124" y="-6">circuit energies:</text>
-          <text class="card-remark" x="-124" y="12">Ec (charging), Ej (Josephson)</text>
-          <circle cx="-118" cy="34" r="3.5" fill="#A8641F" />
-          <text class="port-label" x="-106" y="38">port  Ej</text>
-        </g>
-
-        <!-- ===== node: RespResmTmnABC ===== -->
-        <g transform="translate(850,400)">
-          <rect x="-142" y="-46" width="284" height="92" rx="3" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.6" stroke-dasharray="6,4" />
-          <rect x="80" y="-40" width="46" height="16" rx="2" fill="none" stroke="#0E7DA6" stroke-width="1" />
-          <text class="card-badge-text" x="103" y="-28" text-anchor="middle" fill="#0E7DA6">ABC</text>
-          <text class="card-name" x="-124" y="-18">RespResmTmnABC</text>
-          <text class="card-remark" x="-124" y="4">resonator split into ± modes</text>
-          <text class="card-remark" x="-124" y="22">plus a transmon subsystem</text>
-        </g>
-
-        <!-- ===== node: TransmonKerr ===== -->
-        <g transform="translate(490,580)">
-          <rect x="-142" y="-56" width="284" height="112" rx="3" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" />
-          <text class="card-name" x="-124" y="-28">TransmonKerr</text>
-          <text class="card-remark" x="-124" y="-6">weakly-anharmonic transmon:</text>
-          <text class="card-remark" x="-124" y="12">linear + Kerr, from (Ec, ω_qub)</text>
-          <circle cx="-118" cy="34" r="3.5" fill="#A8641F" />
-          <text class="port-label" x="-106" y="38">port  ω_qub</text>
-        </g>
-
-        <!-- ===== node: RespResmTmnKerrABC ===== -->
-        <g transform="translate(850,580)">
-          <rect x="-142" y="-46" width="284" height="92" rx="3" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.6" stroke-dasharray="6,4" />
-          <rect x="80" y="-40" width="46" height="16" rx="2" fill="none" stroke="#0E7DA6" stroke-width="1" />
-          <text class="card-badge-text" x="103" y="-28" text-anchor="middle" fill="#0E7DA6">ABC</text>
-          <text class="card-name" x="-124" y="-18">RespResmTmnKerrABC</text>
-          <text class="card-remark" x="-124" y="4">fixes the transmon to</text>
-          <text class="card-remark" x="-124" y="22">TransmonKerr(N, Ec, ω_qub)</text>
-        </g>
-
-        <!-- ===== node: RespResmTmnKerrDirect ===== -->
-        <g transform="translate(850,760)">
-          <rect x="-142" y="-56" width="284" height="112" rx="3" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" />
-          <text class="card-name" x="-124" y="-28">RespResmTmnKerrDirect</text>
-          <text class="card-remark" x="-124" y="-6">+ direct g-coupling,</text>
-          <text class="card-remark" x="-124" y="12">Purcell-filter relaxation</text>
-          <circle cx="-118" cy="34" r="3.5" fill="#A8641F" />
-          <text class="port-label" x="-106" y="38">port  g</text>
-        </g>
-
-        <!-- ===== node: RespResmTmnKerrDirectDriven ===== -->
-        <g transform="translate(850,950)">
-          <rect x="-142" y="-67" width="284" height="134" rx="3" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.4" />
-          <text class="card-name" x="-124" y="-39" font-size="12.5">RespResmTmnKerrDirectDriven</text>
-          <text class="card-remark" x="-124" y="-17">+ external drives, moved</text>
-          <text class="card-remark" x="-124" y="1">into the ω_drive rotating frame</text>
-          <circle cx="-118" cy="23" r="3.5" fill="#A8641F" />
-          <text class="port-label" x="-106" y="27">ports  drive_res, drive_tmn,</text>
-          <text class="port-label" x="-106" y="43">      ω_drive</text>
-        </g>
-
-      </svg>
+</defs>
+<rect x="-6" y="0" width="1302" height="1925" fill="#F3F5F7" />
+<rect x="-6" y="0" width="1302" height="1925" fill="url(#grid)" />
+<rect x="14" y="981.0" width="1262" height="904.0" rx="10" fill="#A8641F" opacity="0.07" />
+<rect x="14" y="981.0" width="1262" height="904.0" rx="10" fill="none" stroke="#A8641F" stroke-width="1.2" stroke-dasharray="2,5" opacity="0.55" />
+<text class="zone-label" x="42" y="1015.0">THE CONCRETE CIRCUIT</text>
+<text class="zone-sub" x="42" y="1037.0">one specific resonator + transmon readout, assembled from the framework above</text>
+<path d="M 757.5,1027.0 L 1080,351.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 727.5,1027.0 C 897.5,947.0 953.0,705.0 838.0,520.0" fill="none" stroke="#A8641F" stroke-width="1.9" stroke-dasharray="1,6" stroke-linecap="round" />
+<text class="arc-label" x="916.0" y="730.0" text-anchor="middle" stroke="#FFFFFF" stroke-width="5" paint-order="stroke">tmn</text>
+<rect x="720.5" y="1020.0" width="14" height="14" fill="#A8641F" transform="rotate(45 727.5 1027.0)" />
+<path d="M 435.0,229.0 L 757.5,151.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 1080,229.0 L 757.5,151.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 210,429.0 L 435.0,351.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 660,429.0 L 435.0,351.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 660,659.0 L 660,581.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 1010,351.0 C 860,413.0 655.0,413.0 505.0,351.0" fill="none" stroke="#A8641F" stroke-width="1.9" stroke-dasharray="1,6" stroke-linecap="round" />
+<text class="arc-label" x="757.5" y="417.0" text-anchor="middle" stroke="#FFFFFF" stroke-width="5" paint-order="stroke">subsystems: 0..*</text>
+<rect x="1003" y="344.0" width="14" height="14" fill="#A8641F" transform="rotate(45 1010 351.0)" />
+<path d="M 757.5,1227.0 L 757.5,1149.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 757.5,1427.0 L 757.5,1349.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<path d="M 757.5,1657.0 L 757.5,1579.0" fill="none" stroke="#4E5D6A" stroke-width="1.8" marker-end="url(#tri)" />
+<g transform="translate(757.5,90)">
+<rect x="-170.0" y="-61.0" width="340" height="122" rx="4" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.8" stroke-dasharray="7,5" />
+<rect x="96.0" y="-45.0" width="58" height="22" rx="3" fill="none" stroke="#0E7DA6" stroke-width="1.2" />
+<text class="card-badge-text" x="125.0" y="-30.0" text-anchor="middle" fill="#0E7DA6">ABC</text>
+<text class="card-name" x="-144.0" y="-27.0" font-size="17">QSystemABC</text>
+<text class="card-remark" x="-144.0" y="3.0">the contract:</text>
+<text class="card-remark" x="-144.0" y="26.0">must provide .Hamiltonian()</text>
+</g>
+<g transform="translate(435.0,290.0)">
+<rect x="-170.0" y="-61.0" width="340" height="122" rx="4" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.8" stroke-dasharray="7,5" />
+<rect x="96.0" y="-45.0" width="58" height="22" rx="3" fill="none" stroke="#0E7DA6" stroke-width="1.2" />
+<text class="card-badge-text" x="125.0" y="-30.0" text-anchor="middle" fill="#0E7DA6">ABC</text>
+<text class="card-name" x="-144.0" y="-27.0" font-size="17">SimpleSystemABC</text>
+<text class="card-remark" x="-144.0" y="3.0">one mode, dim N —</text>
+<text class="card-remark" x="-144.0" y="26.0">the composable unit</text>
+</g>
+<g transform="translate(1080,290.0)">
+<rect x="-170.0" y="-61.0" width="340" height="122" rx="4" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.5" />
+<text class="card-name" x="-144.0" y="-27.0" font-size="17">CombinedSystem</text>
+<text class="card-remark" x="-144.0" y="3.0">⊗-composes several</text>
+<text class="card-remark" x="-144.0" y="26.0">subsystems into one space</text>
+</g>
+<g transform="translate(210,505.0)">
+<rect x="-170.0" y="-76.0" width="340" height="152" rx="4" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.5" />
+<text class="card-name" x="-144.0" y="-42.0" font-size="17">ResonatorMode</text>
+<text class="card-formula" x="-144.0" y="-12.0"><tspan>H = ω &#183; </tspan><tspan>n</tspan></text>
+<polyline points="-69.21999999999998,-21.8 -64.91999999999999,-27.2 -60.61999999999999,-21.8" fill="none" stroke="#4E5D6A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+<text class="card-remark" x="-144.0" y="11.0">a single harmonic mode</text>
+<circle cx="-150.0" cy="41.0" r="4.5" fill="#A8641F" />
+<text class="port-label" x="-132.0" y="46.0">port  ω</text>
+</g>
+<g transform="translate(660,505.0)">
+<rect x="-170.0" y="-76.0" width="340" height="152" rx="4" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.8" stroke-dasharray="7,5" />
+<rect x="96.0" y="-60.0" width="58" height="22" rx="3" fill="none" stroke="#0E7DA6" stroke-width="1.2" />
+<text class="card-badge-text" x="125.0" y="-45.0" text-anchor="middle" fill="#0E7DA6">ABC</text>
+<text class="card-name" x="-144.0" y="-42.0" font-size="17">TransmonABC</text>
+<text class="card-remark" x="-144.0" y="-12.0">circuit energies:</text>
+<text class="card-remark" x="-144.0" y="11.0">Ec (charging), Ej (Josephson)</text>
+<circle cx="-150.0" cy="41.0" r="4.5" fill="#A8641F" />
+<text class="port-label" x="-132.0" y="46.0">port  Ej</text>
+</g>
+<g transform="translate(660,735.0)">
+<rect x="-170.0" y="-76.0" width="340" height="152" rx="4" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.5" />
+<text class="card-name" x="-144.0" y="-42.0" font-size="17">TransmonKerr</text>
+<text class="card-remark" x="-144.0" y="-12.0">weakly-anharmonic transmon:</text>
+<text class="card-remark" x="-144.0" y="11.0">linear + Kerr, from (Ec, ω_qub)</text>
+<circle cx="-150.0" cy="41.0" r="4.5" fill="#A8641F" />
+<text class="port-label" x="-132.0" y="46.0">port  ω_qub</text>
+</g>
+<g transform="translate(757.5,1088.0)">
+<rect x="-170.0" y="-61.0" width="340" height="122" rx="4" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.8" stroke-dasharray="7,5" />
+<rect x="96.0" y="-45.0" width="58" height="22" rx="3" fill="none" stroke="#0E7DA6" stroke-width="1.2" />
+<text class="card-badge-text" x="125.0" y="-30.0" text-anchor="middle" fill="#0E7DA6">ABC</text>
+<text class="card-name" x="-144.0" y="-27.0" font-size="17">RespResmTmnABC</text>
+<text class="card-remark" x="-144.0" y="3.0">resonator split into ± modes</text>
+<text class="card-remark" x="-144.0" y="26.0">plus a transmon subsystem</text>
+</g>
+<g transform="translate(757.5,1288.0)">
+<rect x="-170.0" y="-61.0" width="340" height="122" rx="4" fill="#FFFFFF" stroke="#0E7DA6" stroke-width="1.8" stroke-dasharray="7,5" />
+<rect x="96.0" y="-45.0" width="58" height="22" rx="3" fill="none" stroke="#0E7DA6" stroke-width="1.2" />
+<text class="card-badge-text" x="125.0" y="-30.0" text-anchor="middle" fill="#0E7DA6">ABC</text>
+<text class="card-name" x="-144.0" y="-27.0" font-size="15">RespResmTmnKerrABC</text>
+<text class="card-remark" x="-144.0" y="3.0">fixes the transmon to</text>
+<text class="card-remark" x="-144.0" y="26.0">TransmonKerr(N, Ec, ω_qub)</text>
+</g>
+<g transform="translate(757.5,1503.0)">
+<rect x="-170.0" y="-76.0" width="340" height="152" rx="4" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.5" />
+<text class="card-name" x="-144.0" y="-42.0" font-size="15">RespResmTmnKerrDirect</text>
+<text class="card-remark" x="-144.0" y="-12.0">+ direct g-coupling,</text>
+<text class="card-remark" x="-144.0" y="11.0">Purcell-filter relaxation</text>
+<circle cx="-150.0" cy="41.0" r="4.5" fill="#A8641F" />
+<text class="port-label" x="-132.0" y="46.0">port  g</text>
+</g>
+<g transform="translate(757.5,1748.0)">
+<rect x="-170.0" y="-91.0" width="340" height="182" rx="4" fill="#FFFFFF" stroke="#4E5D6A" stroke-width="1.5" />
+<text class="card-name" x="-144.0" y="-57.0" font-size="15">RespResmTmnKerrDirectDriven</text>
+<text class="card-remark" x="-144.0" y="-27.0">+ external drives, moved</text>
+<text class="card-remark" x="-144.0" y="-4.0">into the ω_drive rotating frame</text>
+<circle cx="-150.0" cy="26.0" r="4.5" fill="#A8641F" />
+<text class="port-label" x="-132.0" y="31.0">ports  drive_res, drive_tmn,</text>
+<text class="port-label" x="-132.0" y="52.0">         ω_drive</text>
+</g>
+</svg>
